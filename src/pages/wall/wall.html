@@ -3,8 +3,21 @@
   </ion-header>
   <ion-content padding scroll="false">
 <ion-list>
-  <ion-item *ngFor>
-    <ion-avatar><img [src]=""></ion-avatar>
+  <ion-item *ngFor="let item of publicaciones">
+    <ion-avatar><img [src]="'assets/imgs/avatar'+item.id+'.jpg'"></ion-avatar>
+    <div class="ion-card">
+      <img [src]="'assets/imgs/'+item.foto+'.jpg'">
+      <ion-card-content>
+          <ion-card-title>{{item.producto}}</ion-card-title>
+          <p>
+            {{item.descripcion}}
+          </p>
+      </ion-card-content>
+    </div>
+<ion-row>
+  <ion-col text-left><rating name="calificacion"></rating> </ion-col>
+  <ion-col text-right><a href="#" ><ion-icon name="ios-chatbubbles" ></ion-icon> </a></ion-col>
+</ion-row>
   </ion-item>
 </ion-list>
   </ion-content>

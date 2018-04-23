@@ -20,8 +20,8 @@ import { UsuarioServicio } from './../../servicios/usuarios/usuario.service';
 })
 export class LoginPage {
   datos={
-    email:"",
-    password:""
+    email:"m2ikr23@gmail.com",
+    password:"m2iker21503"
   }
   constructor(public navCtrl: NavController, public navParams: NavParams,public toastCtrl:ToastController,public usuarioServicio:UsuarioServicio) {
   }

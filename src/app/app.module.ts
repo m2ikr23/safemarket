@@ -9,6 +9,7 @@ import { LoginPage } from './../pages/login/login';
 import { RegistroPage } from '../pages/registro/registro';
 import { WallPage } from './../pages/wall/wall';
 import { CustomHeaderComponent } from './../components/custom-header/custom-header';
+import {Ionic2RatingModule} from 'ionic2-rating';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,6 +28,7 @@ import { UsuarioServicio } from './../servicios/usuarios/usuario.service';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    Ionic2RatingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
