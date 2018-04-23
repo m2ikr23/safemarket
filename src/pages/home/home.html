@@ -1,18 +1,17 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+ <custom-header [titulo]="'Safe Market'"></custom-header>
 </ion-header>
-
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+<ion-content padding scroll="false">
+    <div class="splash-bg"></div>
+    <div class="splash-info">
+      <div class="splash-logo"></div>
+      <div class="splash-intro">
+       Bienvenido a SafeMarket
+      </div>
+    </div>
+    <div padding>
+      <button ion-button block (click)="signup()">Registrarse</button>
+      <button ion-button block (click)="login()" class="login">Iniciar Sesión</button>
+    </div>
+ 
 </ion-content>

@@ -1,0 +1,52 @@
+<!--
+  Generated template for the RegistroPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Registro</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<form #formRegistro="ngForm" (ngSubmit)="agregarUsuario(formRegistro)" >
+<ion-list>
+  
+<ion-item>
+    <ion-label floating>Nombre</ion-label>
+    <ion-input type="text" [(ngModel)]="datos.nombre"  name="nombre" required></ion-input>
+</ion-item>
+
+<ion-item> 
+    <ion-label floating  >Apellido</ion-label>
+    <ion-input type="text" [(ngModel)]="datos.apellido"  name="apellido" required></ion-input>
+  </ion-item>
+  <ion-item> 
+    <ion-label floating  >Fecha de nacimiento</ion-label>
+    <ion-input type="date" [(ngModel)]="datos.fecha"  name="fecha" required ></ion-input>
+  </ion-item>
+
+  <ion-item> 
+    <ion-label floating  >Email</ion-label>
+    <ion-input type="email" [(ngModel)]="datos.email"   name="email" required ></ion-input>
+  </ion-item>
+
+  <ion-item> 
+    <ion-label floating >Password</ion-label>
+    <ion-input type="password" [(ngModel)]="datos.password"   name="password" required></ion-input>
+  </ion-item>
+
+  <ion-item> 
+  <button ion-button block type="submit" class="registro" [disabled]="!formRegistro.valid" >Registrarse</button>
+</ion-item>
+
+</ion-list>
+  </form>
+
+</ion-content>
