@@ -14,11 +14,13 @@ import {Ionic2RatingModule} from 'ionic2-rating';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UsuarioServicio } from './../servicios/usuarios/usuario.service';
+import { PerfilPage } from '../pages/perfil/perfil';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
+    PerfilPage,
     ListPage,
     RegistroPage,
     LoginPage,
@@ -35,6 +37,7 @@ import { UsuarioServicio } from './../servicios/usuarios/usuario.service';
     MyApp,
     HomePage,
     ListPage,
+    PerfilPage,
     RegistroPage,
     LoginPage,
     WallPage,
