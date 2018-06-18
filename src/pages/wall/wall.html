@@ -1,26 +1,52 @@
 <ion-header>
   <custom-header [titulo]="'Inicio'"> </custom-header>
-  
+
+</ion-header>
+<ion-menu side="right" [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
   </ion-header>
-  <ion-content padding scroll="false">
-<ion-list>
-  <ion-item *ngFor="let item of publicaciones">
-    <ion-avatar><img [src]="'assets/imgs/avatar'+item.id+'.jpg'"></ion-avatar>
-    <div class="ion-card">
-      <img [src]="'assets/imgs/'+item.foto+'.jpg'">
-      <ion-card-content>
+
+  <ion-content>
+    <ion-list>
+      <button  menuClose ion-item *ngFor="let p of pages" (click)="openPage(p.component)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+
+<ion-content #content scroll="false">
+  <ion-list>
+    <ion-item *ngFor="let item of publicaciones">
+      <ion-avatar>
+        <img [src]="'assets/imgs/avatar'+item.id+'.jpg'">
+      </ion-avatar>
+      <div class="ion-card">
+        <img [src]="'assets/imgs/'+item.foto+'.jpg'">
+        <ion-card-content>
           <ion-card-title>{{item.producto}}</ion-card-title>
           <p>
             {{item.descripcion}}
           </p>
-      </ion-card-content>
-    </div>
-<ion-row>
-  <ion-col text-left><rating name="calificacion"></rating> </ion-col>
-  <ion-col text-right><a href="#" ><ion-icon name="ios-thumbs-up"> </ion-icon> </a></ion-col>
-  <ion-col text-right><a href="#" ><ion-icon name="ios-chatbubbles" ></ion-icon> </a></ion-col>
-</ion-row>
-  </ion-item>
-</ion-list>
-  </ion-content>
-  
+        </ion-card-content>
+      </div>
+      <ion-row>
+        <ion-col text-left>
+          <a clear icon-only (click)="likes()">
+            <ion-icon name="ios-thumbs-up" [color]="getLike()"> </ion-icon>
+          </a>
+        </ion-col>
+        <ion-col text-right>
+          <a href="#">
+            <ion-icon name="ios-chatbubbles"></ion-icon>
+          </a>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+</ion-content>

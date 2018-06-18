@@ -1,0 +1,47 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button clear icon-only (click)="dismiss()" > <ion-icon name="close"></ion-icon> </button>
+    </ion-buttons>
+    <ion-title>UpdateUser</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+ 
+<form #formRegistro="ngForm" (ngSubmit)="actualizarUsuario(formRegistro)" >
+    <ion-list>
+      
+    <ion-item>
+        <ion-label floating>Nombre</ion-label>
+        <ion-input type="text" ngModel name="nombre" required></ion-input>
+    </ion-item>
+    
+    <ion-item> 
+        <ion-label floating  >Apellido</ion-label>
+        <ion-input type="text" ngModel name="apellido" required></ion-input>
+      </ion-item>
+      <ion-item> 
+        <ion-label floating  >Fecha de nacimiento</ion-label>
+        <ion-input type="date" ngModel  name="fecha" required ></ion-input>
+      </ion-item>
+    
+      <ion-item> 
+        <ion-label floating  >foto</ion-label>
+        <ion-input type="file" ngModel   name="foto" required ></ion-input>
+      </ion-item>
+    
+      <ion-item> 
+      <button ion-button block type="submit" class="registro" [disabled]="!formRegistro.valid" >Registrarse</button>
+    </ion-item>
+    
+    </ion-list>
+      </form>
+
+</ion-content>

@@ -1,4 +1,6 @@
+
 import { Component,OnInit,Input } from '@angular/core';
+
 
 /**
  * Generated class for the CustomHeaderComponent component.
@@ -11,13 +13,18 @@ import { Component,OnInit,Input } from '@angular/core';
   templateUrl: 'custom-header.html'
 })
 export class CustomHeaderComponent implements OnInit {
+
+ 
+
  @Input()
   titulo:string=""
   constructor() {
+  
  
   }
   ngOnInit() {
  
   }
+
 
 }

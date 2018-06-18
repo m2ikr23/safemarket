@@ -3,12 +3,28 @@
  
   
 </ion-header>
-<ion-content padding scroll="false">
-    <div class="splash-bg"></div>
+<ion-menu side="right" [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button  menuClose ion-item *ngFor="let p of pages" (click)="openPage(p.component)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+<ion-content class="splash-bg" scroll="false" #content>
+    
     <div class="splash-info">
       <div class="splash-logo"></div>
       <div class="splash-intro">
-       Bienvenido a Safe Market
+      <h3>Bienvenido a Safe Market</h3> 
       </div>
     </div>
     <div padding>

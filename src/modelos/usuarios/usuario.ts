@@ -2,21 +2,15 @@ import { Persona } from './persona';
 
 export class Usuario extends Persona{
 
-    private email:string;
-    private password:string;
-    constructor(nombre:string,apellido:string, fecha:string,
-                elEmail: string, elPassword: string, foto: string, reputacion: string,
-                perfil: string, compra: string, venta:string , seguidores:string){
-        super(nombre,apellido,fecha,null,null,null);
-        this.email=elEmail;
-        this.password=elPassword;
+    constructor( public email:string, public password:string, public foto:string,
+                public reputacion: number, public seguidores: string[],
+                public nombre: string,public apellido: string, 
+                public fecha: string, public direccion: string, public telefono:string, public sexo:string, public status:boolean){
+        super(nombre,apellido,fecha,direccion,telefono,sexo,status);
+     
+      
     }
 
-    public obtenerEmail(){
-        return this.email;
-    }
-    public obtenerPass(){
-        return this.password;
-    }
+  
 }
 

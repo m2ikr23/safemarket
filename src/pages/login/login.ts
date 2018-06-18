@@ -1,3 +1,4 @@
+import { Usuario } from './../../modelos/usuarios/usuario';
 import { WallPage } from './../wall/wall';
 import { NgForm } from '@angular/forms';
 
@@ -19,37 +20,31 @@ import { UsuarioServicio } from './../../servicios/usuarios/usuario.service';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  datos={
-    email:"m2ikr23@gmail.com",
-    password:"m2iker21503"
-  }
+
+  usuario:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public toastCtrl:ToastController,public usuarioServicio:UsuarioServicio) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    console.log(this.usuarioServicio.usuarios);
+
   }
 
   login(formLogin:NgForm){
-    this.datos.email=formLogin.value.email;
-    this.datos.password=formLogin.value.password;
-    let usuarios=this.usuarioServicio.cargarUsuarios().slice();
-    let validar=false;
-  console.log("el email es:"+this.datos.email)
-  
-  for(let i=0; i<usuarios.length;i++){
-    if (this.datos.email===usuarios[i].obtenerEmail() && this.datos.password===usuarios[i].obtenerPass() ) {
-    validar=true;
+    let email=formLogin.value.email;
+    let password=formLogin.value.password;
+    this.usuario=this.usuarioServicio.loginUser(email,password);
+    console.log("el email es:"+this.usuario.email)
+    
+    if (this.usuario) {
+      this.aviso("ha iniciado sesion como "+ this.usuario.email);
+      this.navCtrl.insert(0,WallPage,{'usuario':this.usuario});
+      this.navCtrl.popToRoot();
+    } else {
+      this.aviso("Usuario no registrado");
     }
-  }
-if (validar) {
-  this.aviso("ha iniciado sesion como "+ this.datos.email);
-  this.navCtrl.insert(0,WallPage);
-  this.navCtrl.popToRoot();
-} else {
-  this.aviso("Usuario no registrado");
-}
-}
+    }
+
 aviso(elmensaje:string){
 let toast=this.toastCtrl.create({
   message:elmensaje,

@@ -5,10 +5,7 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>perfil</ion-title>
-  </ion-navbar>
+  <custom-header [titulo]="'Perfil'"> </custom-header>
 
 </ion-header>
 
@@ -17,14 +14,14 @@
   <div class="splash-bg"> <img class="portada" src='../assets/imgs/abandono.png'></div>
   <div class="splash-info">
      
-    <div class="splash-logo"><ion-avatar><img src='../assets/imgs/avatar1.jpg'></ion-avatar></div>
+    <div class="splash-logo"><ion-avatar><img [src]='usuario.foto'></ion-avatar></div>
     <div class="splash-intro">
-     Nombre Usuario
+     {{usuario.nombre}}
     </div>
   </div>
 
   
-      <button ion-button block>Añadir datos personales</button>
+      <button ion-button block (click)="presentModal()" >Añadir datos personales</button>
  
 
   

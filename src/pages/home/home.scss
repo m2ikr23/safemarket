@@ -3,7 +3,7 @@ page-home {
         position: relative;
         background: url('../assets/imgs/comercio.jpg') no-repeat transparent;
         background-size: cover;
-        height: 45%;
+        height: 100%;
         z-index: 1;
         background-repeat: repeat-x;
         animation: animatedBackground 40s linear infinite;
@@ -17,12 +17,13 @@ page-home {
       .splash-info {
         position: relative;
         z-index: 2;
-        margin-top: -64px;
+        margin-top: 75%;
         text-align: center;
+        color:white;
       }
       .splash-logo {
         margin: auto;
-        background: url('../assets/imgs/img4.png') repeat transparent;
+        background: url('') repeat transparent;
         background-size: 100%;
         width: 128px;
         height: 128px;

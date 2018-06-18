@@ -1,12 +1,9 @@
+import { CanalesPage } from './../canales/canales';
+import { PerfilPage } from './../perfil/perfil';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Usuario } from '../../modelos/usuarios/usuario';
 
-/**
- * Generated class for the WallPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -14,6 +11,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'wall.html',
 })
 export class WallPage {
+
+  pages: Array<{title: string, component: any}>;
+  usuario:Usuario;
+  like=false;
+  
 comentarios:Array<any>=[
   {comentarios1:"comentario1"},
   {comentarios1:"comentario2"}, 
@@ -33,10 +35,40 @@ comentarios:Array<any>=[
   ]
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+   this.usuario=navParams.get('usuario'); 
+
+   this.pages = [
+    { title: this.usuario.nombre, component: PerfilPage},
+    { title: 'Registro', component: WallPage },
+    { title: 'Canales', component: CanalesPage},
+  ];
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad WallPage');
+    console.log(this.usuario);
   }
 
+  likes(){
+    if(this.like){
+      this.like=false;
+    }else{
+     this.like=true 
+    }
+    
+  }
+
+  getLike(){
+    if(this.like){
+
+      return "primary";
+
+    }else{
+      return "grey";
+    }
+    
+  }
+
+  openPage(page){
+    this.navCtrl.push(page,{'usuario':this.usuario});
+    }
 }
