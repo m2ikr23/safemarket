@@ -40,4 +40,14 @@ page-perfil {
           background-color: rgb(220, 220, 220);
         }
       }
+
+      .avatar{
+        max-height: 100px;
+        max-width: 128px;
+        min-width: 128px;
+        border-radius : 50%;
+      }
+
+
+
 }

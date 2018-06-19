@@ -1,3 +1,4 @@
+import { UsuarioServicio } from './../../servicios/usuarios/usuario.service';
 import { Usuario } from './../../modelos/usuarios/usuario';
 import { NgForm } from '@angular/forms';
 import { Component } from '@angular/core';
@@ -12,18 +13,22 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class UpdateUserPage {
 usuario:Usuario;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl:ViewController) {
-  this.usuario = navParams.get('usuario');
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+                public viewCtrl:ViewController, public usuarioServicio:UsuarioServicio) {
+  ;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad UpdateUserPage');
+    this.usuario = this.navParams.get('usuario')
   }
   dismiss(){
     this.viewCtrl.dismiss();
   }
   actualizarUsuario(form:NgForm){
-    this.usuario.foto=form.value.foto;
+    this.usuario.avatar=form.value.foto;
+    this.usuario.nombre = form.value.nombre;
+    this.usuario.apellido = form.value.apellido;
+    this.usuarioServicio.actualizarUsuario(this.usuario)
     console.log(form.value.foto);
   }
 }

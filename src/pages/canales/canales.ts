@@ -1,4 +1,4 @@
-import { Admin } from './../../modelos/usuarios/admin';
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
 import { CanalModalPage } from '../canal-modal/canal-modal';
